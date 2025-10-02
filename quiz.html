@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+</head>
+<body>
+
+
+<!-- Question -->
+<p>What is the capital of Wisconsin?</p>
+
+<!-- Answer buttons -->
+<button class="wrong-answer">Bayfield</button>
+<button id="correct-answer">Madison</button>
+<button class="wrong-answer">Milwaukee</button>
+
+<!-- Where the result message will appear -->
+<p id="result"></p>
+
+<script>
+    // Select the correct answer button
+    let correctAnswerButton = document.querySelector("#correct-answer");
+
+    // Save the default background color of the correct button
+    let defaultButtonColor = correctAnswerButton.style.background;
+
+    // Select the result paragraph
+    let result = document.querySelector("#result");
+
+    // Select all wrong answer buttons
+    let wrongAnswerButtons = document.querySelectorAll(".wrong-answer");
+
+    // --- METHOD 1: forEach loop (easier way) ---
+    wrongAnswerButtons.forEach(function(wrongAnswerButton) {
+        // Add click event to each wrong button
+        wrongAnswerButton.addEventListener("click", function() {
+            result.innerHTML = "❌ Wrong answer, try again!";
+            // Reset correct button color when wrong answer clicked
+            correctAnswerButton.style.background = defaultButtonColor;
+        });
+    });
+
+    // --- METHOD 2: for loop (another way, same result) ---
+    /*
+    for (let x = 0; x < wrongAnswerButtons.length; x++) {
+      let wrongAnswerButton = wrongAnswerButtons[x];
+      wrongAnswerButton.addEventListener("click", function() {
+        result.innerHTML = "Wrong answer, try again!";
+        correctAnswerButton.style.background = defaultButtonColor;
+      });
+    }
+    */
+
+    // Add event listener to correct answer button
+    correctAnswerButton.addEventListener("click", function() {
+        result.innerHTML = " Correct answer!";
+        correctAnswerButton.style.background = "cyan"; // highlight correct answer
+    });
+
+</script>
+</body>
+</html>

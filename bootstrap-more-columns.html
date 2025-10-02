@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap More Columns</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container-fluid">
+    <!-- Main page title -->
+    <h1>Computer Programming</h1>
+
+    <!-- Will display the screen width here (using JavaScript later) -->
+    <h2 id="width"></h2>
+
+
+    <!-- First row, will contain two columns -->
+    <div class="row">
+        <!-- First column: contains an image -->
+        <div class="col-md-6">
+            <img src="images/computer.jpg" class="img-fluid" alt="Computer">
+        </div>
+
+        <!-- Second column: list of programming languages -->
+        <div class="col-md-6">
+            <h2>A list of programming languages</h2>
+            <ul>
+                <li>Java</li>
+                <li>C#</li>
+                <li>Python</li>
+            </ul>
+        </div>
+    </div>
+    <!-- End of first row -->
+
+    <!-- Second row, will contain three columns -->
+    <div class="row">
+        <!-- First column: Java info -->
+        <div class="col-sm-4">
+            <h2>Java</h2>
+            <p>Java is a compiled, Object-Oriented language.</p>
+        </div>
+
+        <!-- Second column: C# info -->
+        <div class="col-sm-4">
+            <h2>C#</h2>
+            <p>C# is also a compiled, Object-Oriented language.</p>
+        </div>
+
+        <!-- Third column: Python info -->
+        <div class="col-sm-4">
+            <h2>Python</h2>
+            <p>Python is an interpreted language.</p>
+        </div>
+    </div>
+    <!-- End of second row -->
+</div>
+
+<!-- JavaScript to display the browser window width -->
+<script>
+    function displayWidth() {
+        // Get the screen width
+        let width = document.body.scrollWidth;
+
+        // Find the <h2> element with id="width"
+        let widthDisplayEl = document.querySelector('#width');
+
+        // Display the width inside that element
+        widthDisplayEl.innerHTML = `Window width = ${width} pixels`;
+    }
+
+    // Call the function once to display the initial width
+    displayWidth();
+
+    // Update the width when the window is resized
+    window.addEventListener('resize', displayWidth);
+</script>
+
+</body>
+</html>
+

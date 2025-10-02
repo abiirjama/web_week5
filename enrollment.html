@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Status</title>
+</head>
+<body>
+
+<!-- Question for the user -->
+<p>How many credits are you taking this semester?</p>
+
+<!-- Input box (number only) and button -->
+<input type="number" id="credit-count">
+<button id="submit-credits">Enter</button>
+
+<!-- Where the enrollment status message will be displayed -->
+<p id="status-message"></p>
+
+<script>
+    // Select the button, input, and message area
+    let submitButton = document.querySelector("#submit-credits");
+    let creditsInput = document.querySelector("#credit-count");
+    let statusMessage = document.querySelector("#status-message");
+
+    // Add event listener when button is clicked
+    submitButton.addEventListener("click", function() {
+        let credits = creditsInput.value; // get value from input box
+
+        // Check credit load and display appropriate message
+        if (credits >= 12) {
+            statusMessage.innerHTML = "✅ You are enrolled as a full time student";
+        } else if (credits >= 6) {
+            statusMessage.innerHTML = "ℹ️ You are enrolled as a half time student";
+        } else if (credits > 0) {
+            statusMessage.innerHTML = "⚠️ You are enrolled less than half time";
+        } else {
+            statusMessage.innerHTML = "❌ Error, enter zero or a positive number";
+        }
+
+        // TODO: You can also add extra conditions
+        // Example: if (credits > 24) { statusMessage.innerHTML = "Error: too many credits"; }
+    });
+</script>
+
+</body>
+</html>
+
